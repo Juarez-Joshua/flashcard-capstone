@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom/cjs/react-router-dom.min";
 import { readDeck } from "../utils/api";
 import CheckCardLength from "./CheckCardLength";

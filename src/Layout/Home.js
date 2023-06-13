@@ -15,13 +15,20 @@ function Home() {
 
   return (
     <div>
-      <button className="btn btn-secondary rounded mb-3">
-        <Link to="/decks/new" className="text-white">
-          + Create Deck
-        </Link>
-      </button>
+      <Link
+        to="/decks/new"
+        className="text-white btn btn-secondary rounded mb-3"
+      >
+        + Create Deck
+      </Link>
+
       {allDecks.map((deck) => (
-        <ListDecks deck={deck} key={deck.id} setRerender= {setRerender} rerender={rerender}/>
+        <ListDecks
+          deck={deck}
+          key={deck.id}
+          setRerender={setRerender}
+          rerender={rerender}
+        />
       ))}
     </div>
   );

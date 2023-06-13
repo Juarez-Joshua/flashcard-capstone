@@ -20,13 +20,13 @@ function StudyCard({ card, totalCardNum, setCardNumber, cardNumber }) {
   };
 
   return (
-    <div>
+    <div className="p-3">
       <h3>
         Card {cardNumber + 1} of {totalCardNum}
       </h3>
       <p>{showFrontSide ? card.front : card.back}</p>
-      <button onClick={() => setShowFrontSide(!showFrontSide)}>Flip</button>
-      {!showFrontSide && <button onClick={handleNext}>Next</button>}
+      <button onClick={() => setShowFrontSide(!showFrontSide)} className="btn btn-secondary ml-2">Flip</button>
+      {!showFrontSide && <button onClick={handleNext} className="btn btn-primary ml-2">Next</button>}
     </div>
   );
 }
