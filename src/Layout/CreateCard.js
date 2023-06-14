@@ -34,7 +34,7 @@ function CreateCard() {
     <div>
       <nav>
         <Link to="/">Home</Link> /{" "}
-        <Link to={`/decks/${deck.id}`}>{deck.name}</Link> / Add Card
+        <Link to={`/decks/${deck.id}`}>{deck.name}</Link> / <span>Add Card</span>
       </nav>
       <CardForm
         handleSubmit={handleSubmit}

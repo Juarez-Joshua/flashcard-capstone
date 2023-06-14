@@ -15,7 +15,7 @@ function StudyDeck() {
   return (
   <div>
     <nav><Link to= "/">Home</Link> / <Link to={`/decks/${deck.id}`}>{deck.name}</Link> / Study</nav>
-    <h2>{deck.name}</h2>
+    <h2>{deck.name}: Study</h2>
     <CheckCardLength cards = {deck.cards} deckId={deck.id}/>
   </div>
   );

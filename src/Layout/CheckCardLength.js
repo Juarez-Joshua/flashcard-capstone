@@ -19,7 +19,7 @@ function CheckCardLength({ cards, deckId }) {
       ) : (
         <div>
           <p>
-            You need at least 3 cards to study. There are {cards.length} cards
+            <span>Not enough cards</span>.You need at least 3 cards to study. There are {cards.length} cards
             in the deck
           </p>
           <button className="btn btn-primary">
