@@ -1,7 +1,12 @@
 import React from "react";
 
-function DeckForm({ formData , handleSubmit, changeHandler, cancelHandler}) {
-
+function DeckForm({ formData, handleSubmit, setFormData, cancelHandler }) {
+  const changeHandler = ({ target }) => {
+    setFormData({
+      ...formData,
+      [target.name]: target.value,
+    });
+  };
   return (
     <div>
       <form onSubmit={handleSubmit}>

@@ -3,10 +3,9 @@ import { updateDeck, readDeck } from "../utils/api";
 import DeckForm from "./DeckForm";
 import { useParams, useHistory, Link } from "react-router-dom";
 
-
 function EditDeck() {
   const { deckId } = useParams();
-  const [deck, setDeck] = useState({ name: '', description: '', id: '' });
+  const [deck, setDeck] = useState({ name: "", description: "", id: "" });
   const history = useHistory();
 
   useEffect(() => {
@@ -31,23 +30,17 @@ function EditDeck() {
     history.push(`/decks/${deck.id}`);
   };
 
-  const changeHandler = ({ target }) => {
-    setFormData({
-      ...formData,
-      [target.name]: target.value,
-    });
-  };
-
   return (
     <div>
       <nav>
-        <Link to="/">Home</Link> / <Link to={`/decks/${deck.id}`}>{deck.name}</Link> / Edit Deck
+        <Link to="/">Home</Link> /{" "}
+        <Link to={`/decks/${deck.id}`}>{deck.name}</Link> / Edit Deck
       </nav>
       <h1>Edit Deck</h1>
       <DeckForm
         formData={formData}
         handleSubmit={handleSubmit}
-        changeHandler={changeHandler}
+        setFormData={setFormData}
         cancelHandler={cancelHandler}
       />
     </div>

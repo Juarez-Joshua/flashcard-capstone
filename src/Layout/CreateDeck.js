@@ -18,12 +18,7 @@ function CreateDeck() {
   const cancelHandler = () => {
     history.push("/");
   };
-  const changeHandler = ({ target }) => {
-    setFormData({
-      ...formData,
-      [target.name]: target.value,
-    });
-  };
+
   return (
     <div>
       <nav>
@@ -33,7 +28,7 @@ function CreateDeck() {
       <DeckForm
         formData={formData}
         handleSubmit={handleSubmit}
-        changeHandler={changeHandler}
+        setFormData={setFormData}
         cancelHandler={cancelHandler}
       />
     </div>
