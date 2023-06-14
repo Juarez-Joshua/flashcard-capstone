@@ -3,19 +3,26 @@ import {
   useParams,
   Link,
   useRouteMatch,
+  useHistory
 } from "react-router-dom/cjs/react-router-dom.min";
-import { readDeck } from "../utils/api";
+import { deleteDeck, readDeck } from "../utils/api";
 import ListCards from "./ListCards";
 
 function ViewDeck() {
   const [deck, setDeck] = useState({ cards: [] });
   const { deckId } = useParams();
   const { url } = useRouteMatch();
+  const history = useHistory()
   useEffect(() => {
     const intId = Number(deckId);
     readDeck(intId).then(setDeck);
   }, [deckId]);
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    if(window.confirm("Delete this deck? You will not be able to recover it.")){
+        deleteDeck(deck.id)
+        history.push("/")
+    }
+  };
   return (
     <div>
       <nav>
@@ -39,8 +46,8 @@ function ViewDeck() {
           </button>
         </div>
         <h3 className="mt-3">Cards</h3>
-        {deck.cards.map(() => (
-          <ListCards />
+        {deck.cards.map((card) => (
+          <ListCards card={card} url={url} key={card.id}/>
         ))}
       </div>
     </div>
