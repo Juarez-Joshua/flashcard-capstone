@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { updateDeck, readDeck } from "../utils/api";
 import DeckForm from "./DeckForm";
-import { useParams } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
+
 
 function EditDeck() {
   const { deckId } = useParams();
@@ -40,13 +40,15 @@ function EditDeck() {
 
   return (
     <div>
+      <nav>
+        <Link to="/">Home</Link> / <Link to={`/decks/${deck.id}`}>{deck.name}</Link> / Edit Deck
+      </nav>
+      <h1>Edit Deck</h1>
       <DeckForm
         formData={formData}
         handleSubmit={handleSubmit}
         changeHandler={changeHandler}
         cancelHandler={cancelHandler}
-        createDeck={false}
-        deck={deck}
       />
     </div>
   );

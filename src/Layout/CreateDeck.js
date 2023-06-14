@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, Link } from "react-router-dom/cjs/react-router-dom.min";
 import { createDeck } from "../utils/api";
 import DeckForm from "./DeckForm";
 function CreateDeck() {
@@ -25,13 +25,18 @@ function CreateDeck() {
     });
   };
   return (
-    <DeckForm
-      formData={formData}
-      handleSubmit={handleSubmit}
-      changeHandler ={changeHandler}
-      cancelHandler={cancelHandler}
-      createDeck={true}
-    />
+    <div>
+      <nav>
+        <Link to="/">Home</Link> / Create Deck
+      </nav>
+      <h1>Create Deck</h1>
+      <DeckForm
+        formData={formData}
+        handleSubmit={handleSubmit}
+        changeHandler={changeHandler}
+        cancelHandler={cancelHandler}
+      />
+    </div>
   );
 }
 

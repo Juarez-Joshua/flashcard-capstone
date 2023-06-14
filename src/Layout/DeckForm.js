@@ -1,15 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-function DeckForm({ formData , handleSubmit, changeHandler, cancelHandler, createDeck, deck }) {
+function DeckForm({ formData , handleSubmit, changeHandler, cancelHandler}) {
 
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link> / 
-        {createDeck ? " Create Deck" : <Link to={`/decks/${deck.id}`}> {deck.name}</Link>} {!createDeck && "/ Edit Deck"}
-      </nav>
-      <h1>{createDeck ? "Create Deck" : "Edit Deck"}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label> <br />
         <input
