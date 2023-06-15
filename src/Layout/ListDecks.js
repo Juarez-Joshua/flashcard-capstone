@@ -6,8 +6,7 @@ function ListDecks({ deck, setRerender, rerender }) {
 
     const handleDelete = () =>{
         if( window.confirm("Delete this deck? You will not be able to recover it")){
-            deleteDeck(deck.id);
-            setRerender(!rerender);
+            deleteDeck(deck.id).then(()=>setRerender(!rerender))
         }
     }
   return (

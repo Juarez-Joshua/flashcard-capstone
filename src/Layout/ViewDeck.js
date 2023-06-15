@@ -22,8 +22,7 @@ function ViewDeck() {
     if (
       window.confirm("Delete this deck? You will not be able to recover it.")
     ) {
-      deleteDeck(deck.id);
-      history.push("/");
+      deleteDeck(deck.id).then(()=>history.push("/"))
     }
   };
   return (
